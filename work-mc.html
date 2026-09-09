@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MC・司会者向けWebサイト制作 | WORKS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   WORKS詳細ページ ー Studio Mark（架空の制作会社）
+   コンセプト：作品を主役にした、静かで確かなエディトリアル。
+   クライアントサイトの配色（さくら×レモン）とは意図的に分け、
+   制作会社自身のトーン（紙・墨・深緑）で統一する。
+   ============================================================ */
+
+:root{
+  --paper: #FAF9F6;
+  --ink: #1E1D1B;
+  --ink-soft: #6E6A63;
+  --line: #E3DFD6;
+  --accent: #3C4A3F;
+  --accent-soft: #DCE3DD;
+  --white: #FFFFFF;
+
+  --font-display: 'Fraunces', serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+*{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+body{
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+img{ max-width: 100%; display: block; }
+a{ color: inherit; }
+h1, h2{ font-family: var(--font-display); margin: 0; }
+p{ margin: 0 0 1em; }
+
+/* ---------- Header ---------- */
+.site-header{
+  border-bottom: 1px solid var(--line);
+}
+.header-inner{
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 22px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo{
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.15rem;
+  text-decoration: none;
+}
+.top-nav{ display: flex; gap: 28px; }
+.top-nav a{
+  text-decoration: none;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+}
+.top-nav a:hover{ color: var(--accent); }
+
+/* ---------- Intro ---------- */
+.case-intro{ padding: 72px 24px 40px; }
+.intro-inner{ max-width: 720px; margin: 0 auto; }
+.breadcrumb{
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  margin-bottom: 28px;
+}
+.breadcrumb a{ text-decoration: underline; }
+.case-title{
+  font-size: clamp(1.9rem, 4.5vw, 2.75rem);
+  font-weight: 600;
+  line-height: 1.45;
+  margin-bottom: 24px;
+}
+.case-lead{
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  max-width: 34em;
+}
+.anon-note{
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  border-left: 2px solid var(--accent-soft);
+  padding-left: 14px;
+  margin-top: 28px;
+  max-width: 38em;
+}
+
+/* ---------- Preview (device mockups) ---------- */
+.case-preview{ padding: 24px 24px 80px; }
+.preview-inner{
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  align-items: start;
+}
+.device-chrome{
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #EDEBE6;
+  border: 1px solid var(--line);
+  border-bottom: none;
+  border-radius: 10px 10px 0 0;
+  padding: 10px 14px;
+}
+.dot{
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: #C9C4B8;
+}
+.device-url{
+  margin-left: 14px;
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+  background: var(--white);
+  border-radius: 4px;
+  padding: 3px 10px;
+}
+.device-screen{
+  border: 1px solid var(--line);
+  background: var(--white);
+  overflow: hidden;
+}
+.device-screen--desktop{
+  border-radius: 0 0 10px 10px;
+  max-height: 560px;
+  overflow-y: auto;
+}
+.device-mobile{
+  max-width: 280px;
+  margin: 0 auto;
+}
+.device-screen--mobile{
+  border-radius: 28px;
+  border-width: 8px;
+  border-color: var(--ink);
+  max-height: 560px;
+  overflow-y: auto;
+}
+
+@media (min-width: 860px){
+  .preview-inner{
+    grid-template-columns: 1.6fr 1fr;
+    gap: 48px;
+  }
+  .device-mobile{ margin: 0; }
+}
+
+/* ---------- Spec sheet ---------- */
+.case-spec{
+  background: var(--white);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 64px 24px;
+}
+.spec-inner{ max-width: 720px; margin: 0 auto; }
+.spec-list{ margin: 0; }
+.spec-row{
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 24px;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--line);
+}
+.spec-row:first-child{ padding-top: 0; }
+.spec-row:last-child{ border-bottom: none; }
+.spec-row dt{
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  font-weight: 600;
+  padding-top: 2px;
+}
+.spec-row dd{
+  margin: 0;
+  color: var(--ink);
+}
+.spec-bullets, .spec-tags{
+  list-style: none;
+  margin: 0; padding: 0;
+}
+.spec-bullets li{
+  padding: 6px 0;
+  border-bottom: 1px dotted var(--line);
+}
+.spec-bullets li:last-child{ border-bottom: none; }
+.spec-tags{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.spec-tags li{
+  font-size: 0.82rem;
+  background: var(--accent-soft);
+  color: var(--accent);
+  padding: 5px 12px;
+  border-radius: 3px;
+}
+
+@media (min-width: 620px){
+  .spec-row{ grid-template-columns: 160px 1fr; }
+}
+
+/* ---------- Design note ---------- */
+.case-design-note{ padding: 72px 24px; }
+.note-inner{ max-width: 640px; margin: 0 auto; }
+.case-design-note h2{
+  font-size: 1.4rem;
+  margin-bottom: 24px;
+}
+.case-design-note p{ color: var(--ink-soft); max-width: 36em; }
+
+/* ---------- Next ---------- */
+.case-next{
+  background: var(--ink);
+  color: var(--white);
+  padding: 64px 24px;
+  text-align: center;
+}
+.next-label{
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: #A9A69F;
+  margin-bottom: 14px;
+}
+.next-link{
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,0.4);
+  padding-bottom: 4px;
+}
+.next-link:hover{ border-color: var(--white); }
+
+/* ---------- Footer ---------- */
+.site-footer{
+  text-align: center;
+  padding: 32px 24px;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+}
+
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">LUMINA WORKS</a>
+    <nav class="top-nav">
+      <a href="index.html#works">WORKS</a>
+      <a href="index.html#about">ABOUT</a>
+      <a href="index.html#contact">CONTACT</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="case-intro">
+    <div class="intro-inner">
+      <p class="breadcrumb"><a href="index.html#works">WORKS</a> ／ MC・司会者向けWebサイト</p>
+      <h1 class="case-title">言葉を仕事にする人の、<br>信頼を伝えるサイト。</h1>
+      <p class="case-lead">
+        企業イベントから結婚式まで幅広く活動するMC・司会者のための、
+        依頼につながるプロフィールサイトを制作しました。
+      </p>
+      <p class="anon-note">※ 掲載内容・画像は個人情報保護のため、サンプル用に変更しています。実際に制作したサイトの構成・デザインをもとにした匿名化サンプルです。</p>
+    </div>
+  </section>
+
+  <section class="case-preview">
+    <div class="preview-inner">
+
+      <div class="device device-desktop">
+        <div class="device-chrome">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <span class="device-url">mio-sample.example</span>
+        </div>
+        <div class="device-screen device-screen--desktop">
+          <img src="work-mc-pc.png" alt="PC表示のプレビュー（サンプル）">
+        </div>
+      </div>
+
+      <div class="device device-mobile">
+        <div class="device-screen device-screen--mobile">
+          <img src="work-mc-mobile.png" alt="スマートフォン表示のプレビュー（サンプル）">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="case-spec">
+    <div class="spec-inner">
+
+      <dl class="spec-list">
+        <div class="spec-row">
+          <dt>CATEGORY</dt>
+          <dd>MC / PERSON</dd>
+        </div>
+        <div class="spec-row">
+          <dt>PROJECT</dt>
+          <dd>MC・司会者向けプロフィールサイト</dd>
+        </div>
+        <div class="spec-row">
+          <dt>DESCRIPTION</dt>
+          <dd>司会・MCとして活動する個人の実績やプロフィールを整理し、仕事の依頼につながることを目的としたWebサイトを制作。</dd>
+        </div>
+        <div class="spec-row">
+          <dt>POINT</dt>
+          <dd>
+            <ul class="spec-bullets">
+              <li>実績を分かりやすく整理</li>
+              <li>プロフィールの信頼感を重視</li>
+              <li>スマートフォン最適化</li>
+              <li>料金・FAQ・お問い合わせを設置</li>
+              <li>仕事依頼につながる導線を設計</li>
+            </ul>
+          </dd>
+        </div>
+        <div class="spec-row">
+          <dt>FUNCTION</dt>
+          <dd>
+            <ul class="spec-tags">
+              <li>レスポンシブ対応</li>
+              <li>お問い合わせフォーム</li>
+              <li>FAQ</li>
+              <li>料金ページ</li>
+              <li>プロフィール</li>
+              <li>実績紹介</li>
+              <li>スマートフォン対応</li>
+            </ul>
+          </dd>
+        </div>
+        <div class="spec-row">
+          <dt>PERIOD</dt>
+          <dd>約3週間（サンプル）</dd>
+        </div>
+        <div class="spec-row">
+          <dt>STACK</dt>
+          <dd>HTML / CSS / JavaScript（フレームワーク不使用）</dd>
+        </div>
+      </dl>
+
+    </div>
+  </section>
+
+  <section class="case-design-note">
+    <div class="note-inner">
+      <h2>デザインの考え方</h2>
+      <p>
+        「企業案件」と「結婚式」という一見異なる依頼を、同じ一人のMCが引き受けられることが伝わるよう、
+        華やかになりすぎない上品な配色と、実績を数字で見せる構成を意識しました。
+      </p>
+      <p>
+        依頼する側が知りたい「実績」「人柄」「料金の目安」「よくある疑問」を過不足なく配置し、
+        読んだ流れの延長でお問い合わせに進めるよう導線を設計しています。
+      </p>
+    </div>
+  </section>
+
+  <section class="case-next">
+    <div class="next-inner">
+      <p class="next-label">NEXT PROJECT</p>
+      <a href="index.html#works" class="next-link">他の制作事例を見る</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p>&copy; <span id="workMcFooterYear"></span> 株式会社LUMINA WORKS</p>
+  <script>document.getElementById("workMcFooterYear").textContent = new Date().getFullYear();</script>
+</footer>
+
+</body>
+</html>

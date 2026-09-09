@@ -6,12 +6,12 @@
   /* --- color --- */
   --c-paper:      #F8F3E9;   /* 温かみのあるアイボリー（背景） */
   --c-paper-deep: #F1E8D6;   /* セクション区切り用の少し濃いアイボリー */
-  --c-ink:        #2E2A22;   /* 温かみのあるチャコール（本文） */
-  --c-navy:       #33453A;   /* 深みのあるグリーン（見出し・主要ボタン／旧ネイビーの置き換え） */
-  --c-navy-soft:  #435A48;
-  --c-green:      #6D7E5F;   /* セージグリーン（タグ・カテゴリー等の控えめなアクセント） */
-  --c-green-soft: #E9E2CD;
-  --c-gold:       #B08D57;   /* ごく控えめなゴールド（数字・リンクの小さなアクセント） */
+  --c-ink:        #2A2621;   /* 温かみのあるチャコール（本文） */
+  --c-navy:       #201D19;   /* ほぼ黒に近いダークチャコール（見出し・主要ボタン） */
+  --c-navy-soft:  #332E27;
+  --c-green:      #A9895A;   /* 控えめなシャンパンゴールド（タグ・カテゴリー等の小さなアクセント） */
+  --c-green-soft: #F0E7D2;
+  --c-gold:       #A67F45;   /* シャンパンゴールド（数字・リンクの小さなアクセント） */
   --c-gold-soft:  #E7D9BC;
   --c-line:       #E2D6BC;   /* ボーダー */
   --c-white:      #FFFDF8;
@@ -214,7 +214,7 @@ section{ padding:76px var(--pad); }
 .bg-deep{ background:var(--c-paper-deep); }
 .bg-navy{ background:var(--c-navy); color:#EDEAE0; }
 .bg-navy h2, .bg-navy h3{ color:var(--c-white); }
-.bg-navy .eyebrow{ color:#9FB6A6; }
+.bg-navy .eyebrow{ color:var(--c-gold-soft); }
 .bg-navy .lead{ color:#C9C7BB; }
 
 /* ============================================================
@@ -310,11 +310,12 @@ section{ padding:76px var(--pad); }
 .work-body h3{ margin:8px 0 10px; font-size:18px; }
 .work-body p{ font-size:14px; color:#4B4A3F; }
 
-.work-roles{ display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; }
-.work-roles li{
-  font-size:12px; color:var(--c-navy); background:var(--c-paper-deep);
-  border:1px solid var(--c-line); padding:4px 12px; border-radius:20px;
+.work-tags{ display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
+.work-tags li{
+  font-size:12px; color:var(--c-navy); background:var(--c-gold-soft);
+  border:1px solid var(--c-line); padding:4px 12px; border-radius:20px; font-weight:500;
 }
+.work-roles-text{ font-size:13px; color:#6B6A5C; margin-top:14px; }
 
 .work-foot{ display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:20px; }
 .work-status{
@@ -324,15 +325,19 @@ section{ padding:76px var(--pad); }
 .work-cta{ font-size:13.5px; color:var(--c-gold); font-weight:600; white-space:nowrap; }
 .work-card:hover .work-cta{ text-decoration:underline; }
 
-/* 制作実績が1件のみの場合：横長のショーケース表示にして空白感を防ぐ */
+/* 制作実績が1件のみの場合：横長のショーケース表示にして空白感を防ぎ、
+   実際に作れるサイトのレベルが伝わるよう画像を大きく見せる */
 .works-grid.is-single{ grid-template-columns:1fr; }
 .works-grid.is-single .work-card{ display:grid; grid-template-columns:1fr; }
 @media (min-width:760px){
-  .works-grid.is-single .work-card{ grid-template-columns:1.1fr 1fr; align-items:stretch; }
-  .works-grid.is-single .work-thumb{ aspect-ratio:auto; height:100%; min-height:320px; }
+  .works-grid.is-single .work-card{ grid-template-columns:1.35fr 1fr; align-items:stretch; }
+  .works-grid.is-single .work-thumb{ aspect-ratio:auto; height:100%; min-height:420px; }
   .works-grid.is-single .work-body{ padding:40px 44px; display:flex; flex-direction:column; justify-content:center; }
-  .works-grid.is-single .work-body h3{ font-size:24px; }
+  .works-grid.is-single .work-body h3{ font-size:26px; }
   .works-grid.is-single .work-body p{ font-size:15px; }
+}
+@media (min-width:1020px){
+  .works-grid.is-single .work-thumb{ min-height:480px; }
 }
 
 /* ============================================================
