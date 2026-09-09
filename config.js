@@ -34,7 +34,7 @@ const SITE_CONFIG = {
   },
 
   // ---- 料金 -----------------------------------------------------
-  priceHomepageFrom: "150,000",
+  priceHomepageFrom: "50,000",
   priceMaintenanceFrom: "5,000",
 
   // ---- 制作実績（あとから差し替え・追加してください） -----------
