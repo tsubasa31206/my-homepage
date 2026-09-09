@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>プライバシーポリシー｜株式会社LUMINA WORKS</title>
+<meta name="description" content="株式会社LUMINA WORKSのプライバシーポリシーです。個人情報の利用目的、第三者提供、安全管理措置、お問い合わせ窓口等について記載しています。">
+<link rel="canonical" href="https://example.com/privacy.html">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header" id="siteHeader">
+  <div class="container">
+    <a href="index.html" class="brand">LUMINA <span>WORKS</span></a>
+    <nav class="nav-desktop" aria-label="グローバルナビゲーション">
+      <ul>
+        <li><a href="index.html#service">SERVICE</a></li>
+        <li><a href="index.html#works">WORKS</a></li>
+        <li><a href="index.html#about">ABOUT</a></li>
+        <li><a href="index.html#contact" class="nav-cta">相談する</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="legal">
+  <h1>プライバシーポリシー</h1>
+  <span class="updated" id="updatedDate"></span>
+
+  <p id="policyIntro">
+    株式会社LUMINA WORKS（以下「当社」といいます。）は、お客様の個人情報を大切に取り扱うため、以下のとおりプライバシーポリシーを定めます。
+  </p>
+
+  <h2>1. 個人情報の取得</h2>
+  <p>当社は、お問い合わせフォームその他の方法により、お名前、会社名、メールアドレス、電話番号など、お客様よりご提供いただく範囲で個人情報を取得します。</p>
+
+  <h2>2. 利用目的</h2>
+  <p>取得した個人情報は、以下の目的の範囲内で利用します。</p>
+  <ul>
+    <li>お問い合わせ、お見積りのご依頼への対応</li>
+    <li>ホームページ制作・保守管理業務に関するご連絡</li>
+    <li>契約の履行、業務に関する各種手続き</li>
+    <li>その他、上記に付随する目的</li>
+  </ul>
+
+  <h2>3. 第三者提供について</h2>
+  <p>当社は、法令に基づく場合を除き、お客様の同意を得ることなく個人情報を第三者に提供することはありません。業務委託先に個人情報の取り扱いを委託する場合は、適切な管理を行う委託先を選定し、必要な範囲でのみ提供します。</p>
+
+  <h2>4. 安全管理措置</h2>
+  <p>当社は、取得した個人情報について、紛失、破壊、改ざん及び漏えいなどを防止するため、必要かつ適切な安全管理措置を講じます。</p>
+
+  <h2>5. Cookie（クッキー）等の利用について</h2>
+  <p>当サイトでは、サイトの利便性向上や利用状況の把握のためにCookie等の技術を利用する場合があります。Cookieの利用を望まない場合は、ブラウザの設定により無効にすることが可能です。</p>
+
+  <h2>6. 個人情報の開示・訂正・削除について</h2>
+  <p>お客様がご自身の個人情報の開示、訂正、削除等をご希望される場合は、下記のお問い合わせ窓口までご連絡ください。当社所定の方法により、確認のうえ対応いたします。</p>
+
+  <h2>7. お問い合わせ窓口</h2>
+  <p>
+    株式会社LUMINA WORKS<br>
+    Eメール：<span id="policyEmail"></span><br>
+    電話番号：<span id="policyTel"></span><br>
+    受付時間：<span id="policyHours"></span>
+  </p>
+
+  <h2>8. プライバシーポリシーの変更について</h2>
+  <p>当社は、法令の改正や事業内容の変更等に伴い、本ポリシーの内容を変更することがあります。変更後の内容は、当サイトに掲載した時点から効力を生じるものとします。</p>
+
+  <p class="notice">
+    本ページは一般的なプライバシーポリシーの構成をもとに作成した仮の文面です。公開前に、事業内容・取得する個人情報の範囲・適用法令等に応じて、専門家（弁護士等）による確認・修正を行うことを推奨します。
+  </p>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-bottom" style="max-width:1120px;margin:0 auto;">
+    <span id="footerCopy"></span>
+    <a href="index.html">トップページへ戻る</a>
+  </div>
+</footer>
+
+<script src="js/config.js"></script>
+<script>
+  const cfg = window.SITE_CONFIG;
+  document.getElementById("policyEmail").textContent = cfg.email;
+  document.getElementById("policyTel").textContent = cfg.tel;
+  document.getElementById("policyHours").textContent = cfg.businessHours;
+  document.getElementById("footerCopy").textContent = `© ${new Date().getFullYear()} ${cfg.companyName}`;
+  document.getElementById("updatedDate").textContent = "最終更新日：" + new Date().toLocaleDateString("ja-JP");
+</script>
+</body>
+</html>
