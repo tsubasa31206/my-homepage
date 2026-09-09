@@ -3,391 +3,1292 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MC・司会者向けWebサイト制作 | WORKS</title>
+<title>Mio Sample｜企業・イベントMC / 司会（制作事例サンプル）</title>
+<meta name="description" content="Mio Sampleは、企業イベント・周年式典・展示会・セミナー・結婚式などに対応するMC・司会者の制作事例サンプルです（掲載内容はすべてサンプルです）。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;700;900&family=Noto+Sans+JP:wght@400;500;700&family=Cormorant+Garamond:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
-   WORKS詳細ページ ー Studio Mark（架空の制作会社）
-   コンセプト：作品を主役にした、静かで確かなエディトリアル。
-   クライアントサイトの配色（さくら×レモン）とは意図的に分け、
-   制作会社自身のトーン（紙・墨・深緑）で統一する。
+   MC・司会者向け 集客サイト（匿名化サンプル）
+   コンセプト：式次第（プログラム）のような余白のリズム。
+   「言葉と間で場をつくる」MCの仕事を、レイアウトの呼吸で体現する。
    ============================================================ */
 
 :root{
-  --paper: #FAF9F6;
-  --ink: #1E1D1B;
-  --ink-soft: #6E6A63;
-  --line: #E3DFD6;
-  --accent: #3C4A3F;
-  --accent-soft: #DCE3DD;
+  /* --- color --- */
+  --paper: #F7F4EE;
+  --paper-alt: #F1E3E1;
+  --ink: #2B2622;
+  --ink-soft: #63594F;
+  --bordeaux: #A8536A;
+  --bordeaux-deep: #8B3F54;
+  --rose: #C98A93;
+  --gold: #C9A83D;
+  --gold-soft: #E8D36A;
+  --sakura-wash: rgba(168,83,106,0.12);
+  --lemon-wash: rgba(201,168,61,0.10);
+  --line: #DCD2C4;
   --white: #FFFFFF;
 
-  --font-display: 'Fraunces', serif;
-  --font-body: 'Inter', sans-serif;
+  /* --- type scale --- */
+  --font-display: 'Zen Old Mincho', serif;
+  --font-body: 'Noto Sans JP', sans-serif;
+  --font-accent: 'Cormorant Garamond', serif;
+
+  --measure: 34em;
 }
 
 *{ box-sizing: border-box; }
 html{ scroll-behavior: smooth; }
 body{
-  margin: 0;
+  margin:0;
   background: var(--paper);
   color: var(--ink);
   font-family: var(--font-body);
-  line-height: 1.8;
+  font-size: 16px;
+  line-height: 1.9;
   -webkit-font-smoothing: antialiased;
 }
-img{ max-width: 100%; display: block; }
-a{ color: inherit; }
-h1, h2{ font-family: var(--font-display); margin: 0; }
-p{ margin: 0 0 1em; }
 
-/* ---------- Header ---------- */
+img{ max-width:100%; display:block; }
+
+a{ color: inherit; }
+
+h1, h2, h3{
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.5;
+  margin: 0;
+}
+
+p{ margin: 0 0 1em; max-width: var(--measure); }
+
+:focus-visible{
+  outline: 2px solid var(--bordeaux);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation: none !important; transition: none !important; scroll-behavior:auto !important; }
+}
+
+/* ---------- layout helpers ---------- */
+.section{
+  padding: 88px 24px;
+  background: radial-gradient(ellipse 600px 300px at 0% 100%, var(--lemon-wash), transparent 60%), var(--paper);
+}
+.section-alt{
+  background:
+    radial-gradient(ellipse 600px 300px at 100% 0%, var(--sakura-wash), transparent 60%),
+    var(--paper-alt);
+}
+.section-inner{ max-width: 1040px; margin: 0 auto; }
+.section-title{ font-size: 1.7rem; margin-bottom: 20px; }
+.section-title::after{
+  content:'';
+  display:block;
+  width: 68px;
+  height: 4px;
+  margin-top: 16px;
+  background: linear-gradient(90deg, var(--bordeaux), var(--gold));
+}
+.section-lead{ color: var(--ink-soft); max-width: var(--measure); }
+.section-cta{ margin-top: 40px; }
+
+/* ---------- buttons ---------- */
+.btn{
+  display: inline-block;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  margin: 0;
+  outline: none;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 14px 30px;
+  border-radius: 3px;
+  text-decoration: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background-color .12s ease, color .12s ease, border-color .12s ease, transform .12s ease;
+}
+.btn-primary{
+  background: var(--bordeaux);
+  color: var(--white);
+  box-shadow: 0 10px 24px -10px rgba(168,83,106,0.55);
+  transition: background-color .18s ease, box-shadow .25s ease;
+}
+.btn-primary.is-pressed{
+  background: var(--bordeaux-deep);
+  box-shadow: 0 4px 10px -6px rgba(168,83,106,0.6);
+  transform: scale(0.97);
+}
+.btn-ghost{
+  background: transparent;
+  color: var(--bordeaux);
+  border-color: var(--bordeaux);
+  margin-left: 12px;
+}
+.btn-ghost.is-pressed{ background: var(--bordeaux-deep); color: var(--white); transform: scale(0.97); }
+@media (hover: hover) and (pointer: fine){
+  .btn-primary:hover{
+    background: var(--bordeaux-deep);
+    box-shadow: 0 10px 26px -8px rgba(168,83,106,0.6);
+  }
+  .btn-ghost:hover{ background: var(--bordeaux); color: var(--white); }
+}
+.btn-small{ padding: 9px 20px; font-size: 0.85rem; }
+
+/* ============================================================
+   Header
+   ============================================================ */
 .site-header{
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(247,244,238,0.92);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--gold-soft);
+}
+.site-header::before{
+  content:'';
+  display:block;
+  height: 5px;
+  background: linear-gradient(90deg, var(--bordeaux), var(--gold), var(--bordeaux));
+}
+.sample-banner{
+  background: var(--paper-alt);
+  color: var(--ink-soft);
+  text-align: center;
+  font-size: 0.78rem;
+  padding: 8px 16px;
   border-bottom: 1px solid var(--line);
 }
 .header-inner{
-  max-width: 1100px;
+  max-width: 1040px;
   margin: 0 auto;
-  padding: 22px 24px;
+  padding: 14px 24px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 24px;
 }
-.logo{
+.brand{
+  text-decoration:none;
+  color: var(--ink);
   font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 1.15rem;
-  text-decoration: none;
+  font-size: 1.05rem;
+  white-space: nowrap;
 }
-.top-nav{ display: flex; gap: 28px; }
-.top-nav a{
-  text-decoration: none;
-  font-size: 0.78rem;
-  letter-spacing: 0.08em;
-  color: var(--ink-soft);
+.brand-sub{ color: var(--ink-soft); font-size: 0.85rem; }
+.main-nav{
+  display: flex;
+  gap: 22px;
+  margin-left: auto;
+  font-size: 0.9rem;
 }
-.top-nav a:hover{ color: var(--accent); }
+.main-nav a{ text-decoration:none; border-bottom: 1px solid transparent; transition: border-color .2s ease, color .2s ease; }
+@media (hover: hover) and (pointer: fine){
+  .main-nav a:hover{ border-color: var(--gold); color: var(--bordeaux-deep); }
+}
+.nav-toggle{ display:none; }
 
-/* ---------- Intro ---------- */
-.case-intro{ padding: 72px 24px 40px; }
-.intro-inner{ max-width: 720px; margin: 0 auto; }
-.breadcrumb{
-  font-size: 0.82rem;
-  color: var(--ink-soft);
-  margin-bottom: 28px;
+@media (max-width: 760px){
+  .main-nav{
+    position: absolute;
+    top: 100%; left:0; right:0;
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+    flex-direction: column;
+    gap: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .25s ease;
+  }
+  .main-nav.open{ max-height: 320px; }
+  .main-nav a{
+    padding: 14px 24px;
+    border-bottom: 1px solid var(--line);
+  }
+  .header-inner{ position: relative; }
+  .btn-small{ display:none; }
+  .nav-toggle{
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    gap:5px;
+    width: 30px; height: 26px;
+    background:none;
+    border:none;
+    margin-left:auto;
+  }
+  .nav-toggle span{
+    display:block; height:2px; background: var(--ink);
+  }
 }
-.breadcrumb a{ text-decoration: underline; }
-.case-title{
-  font-size: clamp(1.9rem, 4.5vw, 2.75rem);
-  font-weight: 600;
-  line-height: 1.45;
+
+/* ============================================================
+   Hero
+   ============================================================ */
+.hero{
+  padding: 72px 24px 96px;
+  text-align: center;
+  background-image: radial-gradient(rgba(201,168,61,0.14) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+.hero-inner{ max-width: 640px; margin: 0 auto; }
+.hero-eyebrow{
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--bordeaux);
+  margin-bottom: 18px;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 14px;
+}
+.hero-eyebrow::after{
+  content:'';
+  position: absolute;
+  left: 50%; bottom: 0;
+  transform: translateX(-50%);
+  width: 44px; height: 2px;
+  background: linear-gradient(90deg, var(--bordeaux), var(--gold));
+}
+.hero-headline{
+  font-size: clamp(2.1rem, 6vw, 3rem);
   margin-bottom: 24px;
 }
-.case-lead{
-  font-size: 1.05rem;
+.hero-lead{
   color: var(--ink-soft);
-  max-width: 34em;
+  font-size: 0.96rem;
+  max-width: 22em;
+  margin: 0 auto 40px;
 }
-.anon-note{
-  font-size: 0.78rem;
-  color: var(--ink-soft);
-  border-left: 2px solid var(--accent-soft);
-  padding-left: 14px;
-  margin-top: 28px;
-  max-width: 38em;
+@media (min-width: 620px){
+  .hero-lead{ font-size: 1.05rem; max-width: 30em; }
 }
 
-/* ---------- Preview (device mockups) ---------- */
-.case-preview{ padding: 24px 24px 80px; }
-.preview-inner{
-  max-width: 1100px;
-  margin: 0 auto;
+.hero-photo-frame{
+  position: relative;
+  width: 260px;
+  margin: 0 auto 36px;
+  border: 1px solid var(--line);
+  padding: 12px;
+  background: var(--white);
+  box-shadow: 0 20px 40px -20px rgba(43,38,34,0.35);
+  transition: box-shadow .25s ease;
+}
+@media (hover: hover) and (pointer: fine){
+  .hero-photo-frame:hover{
+    box-shadow: 0 20px 40px -20px rgba(43,38,34,0.35), 0 0 0 4px rgba(168,83,106,0.16);
+  }
+}
+.hero-photo-frame::before{
+  content:'';
+  position: absolute;
+  inset: 6px;
+  border: 1px solid var(--gold-soft);
+  pointer-events: none;
+}
+.hero-photo-frame::after{
+  content:'';
+  position: absolute;
+  top: -9px; left: -9px; right: -9px; bottom: -9px;
+  border: 1px solid var(--gold-soft);
+  pointer-events: none;
+}
+.hero-photo{ width: 100%; height: auto; position: relative; }
+
+@media (min-width: 620px){
+  .hero-photo-frame{ width: 320px; }
+}
+
+.sample-photo-note{
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+  margin: -20px auto 24px;
+}
+.hero-facts{
+  list-style:none;
+  padding:0; margin: 0 0 40px;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap: 10px 28px;
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+}
+.hero-facts strong{ color: var(--bordeaux); font-size: 1.05rem; }
+.hero-facts-break{ display:none; width:100%; }
+@media (min-width: 620px){
+  .hero-facts-break{ display:block; flex-basis: 100%; height:0; }
+}
+
+.hero-cta{ display:flex; justify-content:center; flex-wrap:wrap; gap: 12px; }
+.hero-cta .btn-ghost{ margin-left: 0; }
+
+/* ============================================================
+   実績・信頼  /  数字の並び + リスト
+   ============================================================ */
+.stat-panel{
+  position: relative;
+  margin: 36px 0 44px;
+  padding: 34px 18px;
+  text-align: center;
+  background:
+    linear-gradient(120deg, rgba(168,83,106,0.11), transparent 55%),
+    linear-gradient(240deg, rgba(201,168,61,0.13), transparent 55%),
+    var(--paper-alt);
+  border-top: 2px solid var(--gold);
+  border-bottom: 2px solid var(--gold);
+}
+@media (min-width: 480px){
+  .stat-panel{ padding: 34px 28px; }
+}
+.stat-panel::before,
+.stat-panel::after{
+  content:'';
+  position:absolute;
+  left: 50%; transform: translateX(-50%);
+  width: 7px; height: 7px;
+  background: var(--gold);
+  border-radius: 50%;
+}
+.stat-panel::before{ top: -4.5px; }
+.stat-panel::after{ bottom: -4.5px; }
+
+.stat-grid{
   display: grid;
   grid-template-columns: 1fr;
-  gap: 40px;
-  align-items: start;
 }
-.device-chrome{
+.stat-block{
+  padding: 22px 16px;
+  border-bottom: 1px solid var(--gold-soft);
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 6px;
-  background: #EDEBE6;
-  border: 1px solid var(--line);
-  border-bottom: none;
-  border-radius: 10px 10px 0 0;
-  padding: 10px 14px;
+  gap: 10px;
 }
-.dot{
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  background: #C9C4B8;
+.stat-block:last-child{ border-bottom: none; }
+.stat-block-num{
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  color: var(--bordeaux-deep);
+  font-weight: 900;
+  line-height: 1.3;
+  white-space: nowrap;
+  border-bottom: 3px solid var(--gold);
+  padding: 0 4px 8px;
 }
-.device-url{
-  margin-left: 14px;
-  font-size: 0.72rem;
+.stat-block-label{
+  font-size: 0.9rem;
   color: var(--ink-soft);
-  background: var(--white);
-  border-radius: 4px;
-  padding: 3px 10px;
-}
-.device-screen{
-  border: 1px solid var(--line);
-  background: var(--white);
-  overflow: hidden;
-}
-.device-screen--desktop{
-  border-radius: 0 0 10px 10px;
-  max-height: 560px;
-  overflow-y: auto;
-}
-.device-mobile{
-  max-width: 280px;
-  margin: 0 auto;
-}
-.device-screen--mobile{
-  border-radius: 28px;
-  border-width: 8px;
-  border-color: var(--ink);
-  max-height: 560px;
-  overflow-y: auto;
-}
-
-@media (min-width: 860px){
-  .preview-inner{
-    grid-template-columns: 1.6fr 1fr;
-    gap: 48px;
-  }
-  .device-mobile{ margin: 0; }
-}
-
-/* ---------- Spec sheet ---------- */
-.case-spec{
-  background: var(--white);
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-  padding: 64px 24px;
-}
-.spec-inner{ max-width: 720px; margin: 0 auto; }
-.spec-list{ margin: 0; }
-.spec-row{
-  display: grid;
-  grid-template-columns: 120px 1fr;
-  gap: 24px;
-  padding: 22px 0;
-  border-bottom: 1px solid var(--line);
-}
-.spec-row:first-child{ padding-top: 0; }
-.spec-row:last-child{ border-bottom: none; }
-.spec-row dt{
-  font-size: 0.72rem;
-  letter-spacing: 0.08em;
-  color: var(--accent);
-  font-weight: 600;
-  padding-top: 2px;
-}
-.spec-row dd{
-  margin: 0;
-  color: var(--ink);
-}
-.spec-bullets, .spec-tags{
-  list-style: none;
-  margin: 0; padding: 0;
-}
-.spec-bullets li{
-  padding: 6px 0;
-  border-bottom: 1px dotted var(--line);
-}
-.spec-bullets li:last-child{ border-bottom: none; }
-.spec-tags{
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-.spec-tags li{
-  font-size: 0.82rem;
-  background: var(--accent-soft);
-  color: var(--accent);
-  padding: 5px 12px;
-  border-radius: 3px;
+  letter-spacing: 0.03em;
 }
 
 @media (min-width: 620px){
-  .spec-row{ grid-template-columns: 160px 1fr; }
+  .stat-grid{ grid-template-columns: repeat(3, 1fr); }
+  .stat-block{
+    padding: 6px 10px;
+    border-bottom: none;
+    border-right: 1px solid var(--gold-soft);
+  }
+  .stat-block:last-child{ border-right: none; }
+  .stat-block-num{ font-size: 1.9rem; }
 }
 
-/* ---------- Design note ---------- */
-.case-design-note{ padding: 72px 24px; }
-.note-inner{ max-width: 640px; margin: 0 auto; }
-.case-design-note h2{
-  font-size: 1.4rem;
-  margin-bottom: 24px;
+@media (min-width: 860px){
+  .stat-block{ padding: 6px 24px; }
+  .stat-block-num{ font-size: 2.2rem; }
 }
-.case-design-note p{ color: var(--ink-soft); max-width: 36em; }
-
-/* ---------- Next ---------- */
-.case-next{
-  background: var(--ink);
-  color: var(--white);
-  padding: 64px 24px;
-  text-align: center;
-}
-.next-label{
-  font-size: 0.72rem;
-  letter-spacing: 0.1em;
-  color: #A9A69F;
-  margin-bottom: 14px;
-}
-.next-link{
+.num-accent{
   font-family: var(--font-display);
-  font-size: 1.6rem;
-  text-decoration: none;
-  border-bottom: 1px solid rgba(255,255,255,0.4);
-  padding-bottom: 4px;
+  font-size: 1.3rem;
+  color: var(--bordeaux-deep);
+  font-weight: 700;
+  padding: 0 2px;
+  white-space: nowrap;
+  border-bottom: 2px solid var(--gold-soft);
 }
-.next-link:hover{ border-color: var(--white); }
+@media (min-width: 480px){
+  .num-accent{ font-size: 1.55rem; }
+}
+.fact-list{ list-style:none; padding:0; margin:0; }
+.fact-list li{
+  display:flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+@media (min-width: 480px){
+  .fact-list li{
+    flex-direction: row;
+    gap: 18px;
+    align-items: baseline;
+  }
+}
+.fact-tag{
+  flex: none;
+  font-size: 0.82rem;
+  color: var(--bordeaux);
+  font-weight: 700;
+}
+@media (min-width: 480px){
+  .fact-tag{ flex: 0 0 128px; }
+}
+.fact-tag::before{
+  content: '◆ ';
+  color: var(--gold);
+  font-size: 0.65rem;
+}
+.fact-text{ color: var(--ink); }
+.fact-num{ color: var(--bordeaux-deep); font-weight: 700; font-size: 1.05em; }
 
-/* ---------- Footer ---------- */
-.site-footer{
-  text-align: center;
-  padding: 32px 24px;
-  font-size: 0.8rem;
+/* ============================================================
+   こんなMCを探している方へ
+   ============================================================ */
+.request-list{
+  list-style:none; padding:0; margin: 36px 0 0;
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+.request-list li{
+  padding: 22px 22px 22px 0;
+  border-top: 1px solid var(--line);
+}
+.request-list li:nth-child(odd){ padding-right: 26px; }
+.request-list li:nth-child(even){ padding-left: 26px; border-left: 1px solid var(--line); }
+.request-list h3{ font-size: 1.05rem; margin-bottom: 8px; }
+.request-list p{ font-size: 0.92rem; color: var(--ink-soft); margin:0; }
+
+@media (max-width: 620px){
+  .request-list{ grid-template-columns: 1fr; }
+  .request-list li:nth-child(even){ border-left:none; padding-left:0; }
+  .request-list li{ padding-right:0; }
+}
+
+/* ============================================================
+   選ばれる理由
+   ============================================================ */
+.strength-list{ list-style:none; padding:0; margin:0; }
+.strength-list li{
+  padding: 26px 0;
+  border-bottom: 1px solid var(--line);
+}
+.strength-list li:first-child{ border-top: 1px solid var(--line); }
+.strength-list h3{ font-size: 1.1rem; margin-bottom: 8px; }
+.strength-list p{ color: var(--ink-soft); margin:0; }
+
+/* ============================================================
+   プロフィール
+   ============================================================ */
+.profile-grid{
+  display:grid;
+  grid-template-columns: 200px 1fr;
+  gap: 44px;
+  align-items: start;
+}
+.profile-photo{
+  border: 1px solid var(--gold-soft);
+  padding: 8px;
+  background: var(--white);
+  box-shadow: 0 14px 30px -18px rgba(43,38,34,0.4);
+}
+.profile-name{
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  margin: 4px 0 20px;
+}
+.profile-name-en{
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-size: 0.95rem;
   color: var(--ink-soft);
 }
+.profile-body{ color: var(--ink); }
+.profile-quote{
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--bordeaux);
+  margin: 28px 0 16px;
+  padding-left: 22px;
+  border-left: 2px solid var(--gold);
+}
 
-  </style>
+@media (max-width: 620px){
+  .profile-grid{ grid-template-columns: 1fr; }
+  .profile-photo-col{ width: 150px; }
+}
+
+/* ============================================================
+   経歴
+   ============================================================ */
+.career-list{
+  list-style:none; padding:0; margin:0;
+  border-left: 1px solid var(--line);
+}
+.career-list li{
+  position: relative;
+  padding: 4px 0 22px 26px;
+}
+.career-list li::before{
+  content:'';
+  position:absolute;
+  left:-4px; top: 10px;
+  width:7px; height:7px;
+  border-radius:50%;
+  background: var(--gold);
+}
+.career-year{
+  display:block;
+  font-family: var(--font-display);
+  color: var(--bordeaux);
+  font-size: 0.92rem;
+}
+.career-text{ color: var(--ink); }
+
+/* ============================================================
+   料金
+   ============================================================ */
+.pricing-inner{ text-align:center; }
+.pricing-price{
+  font-size: 1.5rem;
+  font-family: var(--font-display);
+  color: var(--ink);
+  margin: 8px auto 24px;
+}
+.pricing-text{
+  font-size: 1.05rem;
+  margin: 0 auto 16px;
+}
+.pricing-text:last-of-type{ margin-bottom: 32px; }
+.sm-break{ display: none; }
+@media (max-width: 619px){
+  .sm-break{ display: inline; }
+}
+
+/* ============================================================
+   FAQ
+   ============================================================ */
+.faq-list{ margin-top: 32px; }
+.faq-item{
+  border-bottom: 1px solid var(--line);
+  padding: 18px 0;
+}
+.faq-item:first-child{ border-top: 1px solid var(--line); }
+.faq-item summary{
+  cursor:pointer;
+  font-weight: 700;
+  list-style: none;
+  position: relative;
+  padding-right: 28px;
+}
+.faq-item summary::-webkit-details-marker{ display:none; }
+.faq-item summary::after{
+  content:'+';
+  position:absolute; right:0; top:-2px;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--gold);
+}
+.faq-item[open] summary::after{ content:'–'; }
+.faq-item p{ margin-top: 14px; color: var(--ink-soft); }
+
+/* ============================================================
+   お問い合わせ
+   ============================================================ */
+.section-contact .section-lead{ margin-bottom: 40px; }
+.contact-form{ display:grid; grid-template-columns: 1fr 1fr; gap: 20px 24px; }
+.form-row{ display:flex; flex-direction:column; gap:6px; }
+.form-row-full{ grid-column: 1 / -1; }
+.form-row label{ font-size: 0.88rem; font-weight:700; }
+.req{ color: var(--bordeaux); font-weight:400; font-size: 0.78rem; }
+.opt{ color: var(--ink-soft); font-weight:400; font-size: 0.78rem; }
+
+input, select, textarea{
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  padding: 11px 12px;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  background: var(--white);
+  color: var(--ink);
+}
+input:focus, select:focus, textarea:focus{
+  border-color: var(--bordeaux);
+}
+textarea{ resize: vertical; }
+
+.btn-submit{
+  grid-column: 1 / -1;
+  border:none;
+  font-size: 1rem;
+  padding: 16px;
+  margin-top: 8px;
+}
+.form-note{
+  grid-column: 1 / -1;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  margin: 4px 0 0;
+}
+
+@media (max-width: 620px){
+  .contact-form{ grid-template-columns: 1fr; }
+}
+
+.contact-confirm{
+  background: var(--white);
+  border: 1px solid var(--line);
+  padding: 28px 24px;
+  margin-top: 8px;
+}
+.contact-confirm h3{ font-size: 1.15rem; margin-bottom: 10px; }
+.confirm-list{ margin: 20px 0; }
+.confirm-list dt{ font-size: 0.8rem; color: var(--ink-soft); margin-top: 12px; }
+.confirm-list dd{ margin: 2px 0 0; }
+
+.contact-sns{ margin-top: 40px; font-size: 0.9rem; }
+.contact-sns a{ text-decoration: underline; }
+
+/* ============================================================
+   Footer
+   ============================================================ */
+.site-footer{
+  text-align:center;
+  padding: 40px 24px 48px;
+  border-top: 1px solid var(--gold-soft);
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  position: relative;
+}
+.site-footer::before{
+  content:'';
+  position: absolute;
+  top: -2px; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--bordeaux), var(--gold), var(--bordeaux));
+}
+.footer-sub{ margin-top:6px; font-size: 0.75rem; }
+
+/* ============================================================
+   写真のライトボックス
+   ============================================================ */
+.zoomable{
+  cursor: zoom-in;
+  transition: opacity .2s ease;
+}
+@media (hover: hover) and (pointer: fine){
+  .zoomable:hover{ opacity: 0.92; }
+}
+
+.lightbox{
+  position: fixed;
+  inset: 0;
+  background: rgba(24, 18, 16, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  z-index: 300;
+}
+.lightbox[hidden]{ display: none; }
+.lightbox-img{
+  max-width: 90vw;
+  max-height: 86vh;
+  border: 6px solid var(--white);
+  box-shadow: 0 30px 70px -20px rgba(0,0,0,0.6);
+}
+.lightbox-close{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid var(--gold-soft);
+  background: var(--white);
+  color: var(--ink);
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+}
+@media (hover: hover) and (pointer: fine){
+  .lightbox-close:hover{ background: var(--paper-alt); }
+}
+
+/* ============================================================
+   ボタン・CTA・ナビ：赤背景と文字を1つの要素として扱う
+   （spanなどで分割せず、<a>/<button>自体がテキストを直接持つ）
+   デザイン（色・サイズ・余白・フォント・影）には一切影響しません
+   ============================================================ */
+.btn,
+.btn *,
+.main-nav a,
+.main-nav a *,
+.brand,
+.brand *,
+.faq-item summary,
+.faq-item summary *,
+.lightbox-close,
+.lightbox-close *{
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.lw-return-bar{
+  background:#201D19; color:#E7D9BC; text-align:center; font-size:12.5px;
+  padding:9px 16px; letter-spacing:.02em;
+}
+.lw-return-bar a{ color:#FFFDF8; text-decoration:underline; }
+</style>
 </head>
 <body>
+<div class="lw-return-bar">株式会社LUMINA WORKS 制作実績 ｜ <a href="index.html#works">← 制作事例一覧に戻る</a></div>
 
 <header class="site-header">
   <div class="header-inner">
-    <a href="index.html" class="logo">LUMINA WORKS</a>
-    <nav class="top-nav">
-      <a href="index.html#works">WORKS</a>
-      <a href="index.html#about">ABOUT</a>
-      <a href="index.html#contact">CONTACT</a>
+    <a href="#top" class="brand">
+      <span class="brand-ja">Mio Sample</span>
+    </a>
+    <nav class="main-nav" id="mainNav">
+      <a href="#achievements">実績</a>
+      <a href="#requests">依頼できること</a>
+      <a href="#profile">プロフィール</a>
+      <a href="#pricing">料金</a>
+      <a href="#faq">FAQ</a>
     </nav>
+    <button type="button" class="btn btn-primary btn-small" data-scroll-to="#contact">お問い合わせ</button>
+    <button class="nav-toggle" id="navToggle" aria-label="メニューを開く" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
 
-<main>
+<div class="sample-banner">※ 掲載内容・画像は個人情報保護のためサンプル用に変更しています。</div>
 
-  <section class="case-intro">
-    <div class="intro-inner">
-      <p class="breadcrumb"><a href="index.html#works">WORKS</a> ／ MC・司会者向けWebサイト</p>
-      <h1 class="case-title">言葉を仕事にする人の、<br>信頼を伝えるサイト。</h1>
-      <p class="case-lead">
-        企業イベントから結婚式まで幅広く活動するMC・司会者のための、
-        依頼につながるプロフィールサイトを制作しました。
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="hero-inner">
+      <p class="hero-eyebrow">企業・イベントMC ／ 司会</p>
+      <h1 class="hero-headline">その場の空気を、<br>言葉でつくる。</h1>
+      <p class="hero-lead">
+        企業周年式典、展示会、セミナー、<br>
+        結婚式など、幅広い現場に対応します。<br>
+        Mio Sampleが、<br>
+        進行の安心と場の温度をつくります。
       </p>
-      <p class="anon-note">※ 掲載内容・画像は個人情報保護のため、サンプル用に変更しています。実際に制作したサイトの構成・デザインをもとにした匿名化サンプルです。</p>
+
+      <div class="hero-photo-frame">
+        <img src="work-mc-avatar.svg" alt="サンプルプロフィール画像（架空の人物イメージ）" class="hero-photo zoomable">
+      </div>
+      <p class="sample-photo-note">※ 写真はサンプル画像です</p>
+
+      <ul class="hero-facts">
+        <li>司会実績 <strong>多数</strong></li>
+        <li class="hero-facts-break" aria-hidden="true"></li>
+        <li>局アナ・レポーター経験を経て多方面で活躍中</li>
+        <li>全国対応</li>
+      </ul>
+
+      <div class="hero-cta">
+        <button type="button" class="btn btn-primary" data-scroll-to="#contact">お問い合わせをする</button>
+        <button type="button" class="btn btn-ghost" data-scroll-to="#achievements">実績を見る</button>
+      </div>
     </div>
   </section>
 
-  <section class="case-preview">
-    <div class="preview-inner">
+  <!-- ============ 実績・信頼 ============ -->
+  <section class="section" id="achievements">
+    <div class="section-inner">
+      <h2 class="section-title">実績・信頼</h2>
+      <p class="section-lead">テレビ・イベント・式典・ブライダルなど、幅広い現場経験を土台に、企業イベントや式典の現場で司会を務めてきました。</p>
 
-      <div class="device device-desktop">
-        <div class="device-chrome">
-          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-          <span class="device-url">mio-sample.example</span>
-        </div>
-        <div class="device-screen device-screen--desktop">
-          <img src="work-mc-pc.png" alt="PC表示のプレビュー（サンプル）">
+      <div class="stat-panel">
+        <div class="stat-grid">
+          <div class="stat-block">
+            <span class="stat-block-num">多数の実績</span>
+            <span class="stat-block-label">結婚式・披露宴司会</span>
+          </div>
+          <div class="stat-block">
+            <span class="stat-block-num">小規模から</span>
+            <span class="stat-block-label">披露宴</span>
+          </div>
+          <div class="stat-block">
+            <span class="stat-block-num">大規模まで</span>
+            <span class="stat-block-label">大型イベント</span>
+          </div>
         </div>
       </div>
 
-      <div class="device device-mobile">
-        <div class="device-screen device-screen--mobile">
-          <img src="work-mc-mobile.png" alt="スマートフォン表示のプレビュー（サンプル）">
+      <ul class="fact-list">
+        <li><span class="fact-tag">結婚式・披露宴</span><span class="fact-text">多数の司会・MC実績</span></li>
+        <li><span class="fact-tag">披露宴の規模</span><span class="fact-text">小規模から中規模までの披露宴に対応</span></li>
+        <li><span class="fact-tag">大型イベント</span><span class="fact-text">大規模イベントでの司会経験あり</span></li>
+        <li><span class="fact-tag">企業周年式典</span><span class="fact-text">総合司会（中規模）</span></li>
+        <li><span class="fact-tag">式典司会</span><span class="fact-text">公共施設での<br>オープニングセレモニー</span></li>
+        <li><span class="fact-tag">テレビ出演</span><span class="fact-text">ニュースキャスター／ゲストコーナーMC　ほか</span></li>
+        <li><span class="fact-tag">ナレーション</span><span class="fact-text">企業紹介・展示会・CM等　多数</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ こんなMCを探している方へ ============ -->
+  <section class="section section-alt" id="requests">
+    <div class="section-inner">
+      <h2 class="section-title">こんなMCを探している方へ</h2>
+      <p class="section-lead">形式やご予算に応じて、進行台本の作成から当日の司会進行までご相談いただけます。</p>
+
+      <ul class="request-list">
+        <li>
+          <h3>企業イベント・周年式典</h3>
+          <p>株主総会や周年事業、表彰式など、格式のある進行を安心して任せられます。</p>
+        </li>
+        <li>
+          <h3>展示会・ブースMC</h3>
+          <p>来場者への呼び込みから商品説明まで、複数日程でも安定した進行を続けます。</p>
+        </li>
+        <li>
+          <h3>セミナー・カンファレンス</h3>
+          <p>登壇者の魅力を引き出しながら、時間配分にも気を配って進行します。</p>
+        </li>
+        <li>
+          <h3>ステージイベント</h3>
+          <p>明るく親しみやすい進行で、会場の空気を自然にほぐします。</p>
+        </li>
+        <li>
+          <h3>お祭り司会</h3>
+          <p>地域のお祭りやイベントのステージ進行を、明るく元気に盛り上げます。</p>
+        </li>
+        <li>
+          <h3>結婚式・披露宴</h3>
+          <p>人前式・披露宴あわせて多数の実績。小規模から中規模まで対応しています。</p>
+        </li>
+        <li>
+          <h3>ナレーション出演</h3>
+          <p>CM・展示会映像・企業紹介ナレーションなど、音声のみの出演も対応します。</p>
+        </li>
+        <li>
+          <h3>ウグイス嬢</h3>
+          <p>選挙カーや店舗イベントなどでの呼び込みアナウンスにも対応します。</p>
+        </li>
+      </ul>
+
+      <div class="section-cta">
+        <button type="button" class="btn btn-primary" data-scroll-to="#contact">依頼したい内容を相談する</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 選ばれる理由（強み） ============ -->
+  <section class="section" id="strengths">
+    <div class="section-inner">
+      <h2 class="section-title">選ばれる理由</h2>
+
+      <ul class="strength-list">
+        <li>
+          <h3>幅広い現場経験</h3>
+          <p>テレビ・イベント・式典・ブライダルなど、異なる形式の現場を数多く経験しているため、初めての形式のイベントでも安定した進行ができます。</p>
+        </li>
+        <li>
+          <h3>明るく親しみやすい進行</h3>
+          <p>フォーマルな場でも硬くなりすぎず、会場の空気を自然にほぐします。堅い式典と、温かい雰囲気を両立させます。</p>
+        </li>
+        <li>
+          <h3>マナー・知識の裏付け</h3>
+          <p>プロフェッショナル・ブライダルプランナーの資格やマナー講師としての知見があり、格式のある式典でも安心して任せられます。</p>
+        </li>
+        <li>
+          <h3>丁寧な事前準備</h3>
+          <p>台本の確認や進行表のすり合わせなど、当日までのやり取りを丁寧に行い、当日の進行をスムーズにします。</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ プロフィール ============ -->
+  <section class="section section-alt" id="profile">
+    <div class="section-inner profile-grid">
+      <div class="profile-photo-col">
+        <img src="work-mc-avatar.svg" alt="サンプルプロフィール画像（架空の人物イメージ）" class="profile-photo zoomable">
+      </div>
+      <div class="profile-text-col">
+        <h2 class="section-title">プロフィール</h2>
+        <p class="profile-name">Mio Sample <span class="profile-name-en">Sample Profile</span></p>
+        <p class="profile-body">
+          地方都市出身、家庭を持ちながらMC・司会業を続けています。<br><br>
+          地域イベントでの経験をきっかけに、伝えることの喜びと楽しさを知り、話し手の道へ。ケーブルテレビのレポーターやFM局のMCを経て、テレビのニュースキャスターやゲストコーナー出演、数多くのナレーションを担当してきました。現在は企業イベントや式典を中心に、司会者として活動しています。
+        </p>
+        <blockquote class="profile-quote">知・好・楽</blockquote>
+        <p class="profile-body">誠実に、正確に、楽しく。今日も想いを言葉にのせています。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 経歴 ============ -->
+  <section class="section" id="career">
+    <div class="section-inner">
+      <h2 class="section-title">経歴</h2>
+      <ol class="career-list">
+        <li><span class="career-year">◯◯◯◯年</span><span class="career-text">地域イベントでの活動をきっかけに司会業へ</span></li>
+        <li><span class="career-year">その後</span><span class="career-text">地方ケーブルテレビ レポーター</span></li>
+        <li><span class="career-year"></span><span class="career-text">FM局　ニュース・天気予報・ゲストコーナーMC</span></li>
+        <li><span class="career-year"></span><span class="career-text">地方テレビ局の番組に出演</span></li>
+        <li><span class="career-year"></span><span class="career-text">テレビ番組でのレギュラー出演</span></li>
+        <li><span class="career-year"></span><span class="career-text">企業CM・展示会ナレーション、WEBサイトナレーション　多数</span></li>
+        <li><span class="career-year"></span><span class="career-text">展示会ナレーション／地域イベント出演</span></li>
+        <li><span class="career-year">現在</span><span class="career-text">各種企業行事・式典パーティー司会、人前式・披露宴の司会、イベントプランナー、マナー講師として活動中</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ 料金 ============ -->
+  <section class="section section-alt" id="pricing">
+    <div class="section-inner pricing-inner">
+      <h2 class="section-title">料金</h2>
+      <p class="pricing-price">30分 <strong class="num-accent">5,000円〜</strong></p>
+      <p class="pricing-text">
+        内容や時間、<br class="sm-break">会場などによって料金が異なります。<br>
+        まずはお気軽にご相談ください。
+      </p>
+      <p class="pricing-text">ご依頼内容をお伺いし、<br class="sm-break">最適なプランをご提案いたします。</p>
+      <button type="button" class="btn btn-primary" data-scroll-to="#contact">料金について問い合わせる</button>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="section" id="faq">
+    <div class="section-inner">
+      <h2 class="section-title">よくあるご質問</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>どのようなイベントに対応できますか？</summary>
+          <p>企業周年式典、展示会・ブース、セミナー、ステージイベント、結婚式など幅広く対応しています。対応可否についてはお気軽にご相談ください。</p>
+        </details>
+        <details class="faq-item">
+          <summary>対応エリアは？</summary>
+          <p>国内を拠点に、全国のご依頼に対応可能です（交通費は別途となります）。</p>
+        </details>
+        <details class="faq-item">
+          <summary>オンライン対応は可能ですか？</summary>
+          <p>オンライン配信イベントの進行も対応可能です。配信方法にあわせてご相談ください。</p>
+        </details>
+        <details class="faq-item">
+          <summary>何日前までに依頼すればいいですか？</summary>
+          <p>内容によりますが、目安として1か月前までのご相談をおすすめしています。お急ぎの場合もまずはご相談ください。</p>
+        </details>
+        <details class="faq-item">
+          <summary>料金はいくらですか？</summary>
+          <p>内容・拘束時間・会場・業務内容により異なります。まずはお気軽にお問い合わせください。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ お問い合わせ ============ -->
+  <section class="section section-contact" id="contact">
+    <div class="section-inner">
+      <h2 class="section-title">お問い合わせ</h2>
+      <p class="section-lead">
+        以下のフォームにご記入のうえ送信してください。内容を確認のうえ、担当より折り返しご連絡いたします。
+      </p>
+
+      <form class="contact-form" id="contactForm" action="https://formsubmit.co/REPLACE_WITH_YOUR_EMAIL" method="POST" novalidate>
+        <input type="hidden" name="_subject" value="【HPより】お問い合わせ">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+
+        <div class="form-row">
+          <label for="name">お名前 <span class="req">必須</span></label>
+          <input type="text" id="name" name="name" placeholder="例）山田 太郎" required>
         </div>
+        <div class="form-row">
+          <label for="company">会社名・団体名 <span class="opt">任意</span></label>
+          <input type="text" id="company" name="company" placeholder="例）株式会社〇〇（個人の方は空欄でOK）">
+        </div>
+        <div class="form-row">
+          <label for="email">メールアドレス <span class="req">必須</span></label>
+          <input type="email" id="email" name="email" placeholder="例）yamada@example.com" required>
+        </div>
+        <div class="form-row">
+          <label for="phone">電話番号 <span class="opt">任意</span></label>
+          <input type="tel" id="phone" name="phone" placeholder="例）090-1234-5678">
+        </div>
+        <div class="form-row">
+          <label for="eventType">お問い合わせ種別 <span class="req">必須</span></label>
+          <select id="eventType" name="eventType" required>
+            <option value="" disabled selected>選択してください</option>
+            <option>企業・イベントMC</option>
+            <option>周年式典・セミナー</option>
+            <option>展示会・ブースMC</option>
+            <option>結婚式・披露宴</option>
+            <option>ナレーション</option>
+            <option>その他</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="eventDate">開催日 <span class="opt">任意・未定可</span></label>
+          <input type="text" id="eventDate" name="eventDate" placeholder="例）2026年11月15日、または「未定」">
+        </div>
+        <div class="form-row">
+          <label for="venue">開催場所 <span class="opt">任意・未定可</span></label>
+          <input type="text" id="venue" name="venue" placeholder="例）市内のホテル、オンライン　等">
+        </div>
+        <div class="form-row form-row-full">
+          <label for="details">お問い合わせ・ご相談内容 <span class="req">必須</span></label>
+          <textarea id="details" name="details" rows="5" placeholder="例）結婚披露宴（親族中心・80名程度）の司会をお願いしたいです。詳細はご相談させてください。" required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-submit">この内容で送信する</button>
+        <p class="form-note" id="formNote">※ こちらは制作事例サンプルのため、実際の送信は行われません。</p>
+      </form>
+
+      <div class="contact-confirm" id="contactConfirm" hidden>
+        <h3 id="confirmTitle">ご入力ありがとうございます</h3>
+        <p id="confirmMessage">以下の内容で送信しました。担当より折り返しご連絡いたします。</p>
+        <dl class="confirm-list" id="confirmList"></dl>
+        <button type="button" class="btn btn-ghost" id="confirmBack">入力内容を修正する</button>
       </div>
 
-    </div>
-  </section>
-
-  <section class="case-spec">
-    <div class="spec-inner">
-
-      <dl class="spec-list">
-        <div class="spec-row">
-          <dt>CATEGORY</dt>
-          <dd>MC / PERSON</dd>
-        </div>
-        <div class="spec-row">
-          <dt>PROJECT</dt>
-          <dd>MC・司会者向けプロフィールサイト</dd>
-        </div>
-        <div class="spec-row">
-          <dt>DESCRIPTION</dt>
-          <dd>司会・MCとして活動する個人の実績やプロフィールを整理し、仕事の依頼につながることを目的としたWebサイトを制作。</dd>
-        </div>
-        <div class="spec-row">
-          <dt>POINT</dt>
-          <dd>
-            <ul class="spec-bullets">
-              <li>実績を分かりやすく整理</li>
-              <li>プロフィールの信頼感を重視</li>
-              <li>スマートフォン最適化</li>
-              <li>料金・FAQ・お問い合わせを設置</li>
-              <li>仕事依頼につながる導線を設計</li>
-            </ul>
-          </dd>
-        </div>
-        <div class="spec-row">
-          <dt>FUNCTION</dt>
-          <dd>
-            <ul class="spec-tags">
-              <li>レスポンシブ対応</li>
-              <li>お問い合わせフォーム</li>
-              <li>FAQ</li>
-              <li>料金ページ</li>
-              <li>プロフィール</li>
-              <li>実績紹介</li>
-              <li>スマートフォン対応</li>
-            </ul>
-          </dd>
-        </div>
-        <div class="spec-row">
-          <dt>PERIOD</dt>
-          <dd>約3週間（サンプル）</dd>
-        </div>
-        <div class="spec-row">
-          <dt>STACK</dt>
-          <dd>HTML / CSS / JavaScript（フレームワーク不使用）</dd>
-        </div>
-      </dl>
-
-    </div>
-  </section>
-
-  <section class="case-design-note">
-    <div class="note-inner">
-      <h2>デザインの考え方</h2>
-      <p>
-        「企業案件」と「結婚式」という一見異なる依頼を、同じ一人のMCが引き受けられることが伝わるよう、
-        華やかになりすぎない上品な配色と、実績を数字で見せる構成を意識しました。
-      </p>
-      <p>
-        依頼する側が知りたい「実績」「人柄」「料金の目安」「よくある疑問」を過不足なく配置し、
-        読んだ流れの延長でお問い合わせに進めるよう導線を設計しています。
-      </p>
-    </div>
-  </section>
-
-  <section class="case-next">
-    <div class="next-inner">
-      <p class="next-label">NEXT PROJECT</p>
-      <a href="index.html#works" class="next-link">他の制作事例を見る</a>
+      <div class="contact-sns">
+        <a href="#" onclick="return false;" aria-disabled="true" title="制作事例サンプルのためリンク無効">Instagram @sample_mc</a>
+      </div>
     </div>
   </section>
 
 </main>
 
+<div class="lightbox" id="lightbox" hidden>
+  <button class="lightbox-close" id="lightboxClose" aria-label="閉じる">&times;</button>
+  <img src="" alt="" class="lightbox-img" id="lightboxImg">
+</div>
+
 <footer class="site-footer">
-  <p>&copy; <span id="workMcFooterYear"></span> 株式会社LUMINA WORKS</p>
-  <script>document.getElementById("workMcFooterYear").textContent = new Date().getFullYear();</script>
+  <p>Mio Sample — 企業・イベントMC / 司会</p>
+  <p class="footer-sub">&copy; Mio Sample（制作事例サンプル）</p>
 </footer>
 
+<script>
+// ---- モバイルナビ開閉 ----
+const navToggle = document.getElementById('navToggle');
+const mainNav = document.getElementById('mainNav');
+
+navToggle.addEventListener('click', () => {
+  const isOpen = mainNav.classList.toggle('open');
+  navToggle.setAttribute('aria-expanded', String(isOpen));
+});
+
+mainNav.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    mainNav.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  });
+});
+
+// ---- お問い合わせフォーム ----
+// 送信先は FormSubmit（https://formsubmit.co/）を利用しています。
+// アカウント登録は不要ですが、フォームの action に設定したメールアドレスへ
+// 初回だけ「確認メール」が届くので、そこで一度だけ承認が必要です（無料）。
+const form = document.getElementById('contactForm');
+const confirmBox = document.getElementById('contactConfirm');
+const confirmList = document.getElementById('confirmList');
+const confirmTitle = document.getElementById('confirmTitle');
+const confirmMessage = document.getElementById('confirmMessage');
+const confirmBack = document.getElementById('confirmBack');
+const submitBtn = form.querySelector('.btn-submit');
+
+const fieldLabels = {
+  name: 'お名前',
+  company: '会社名・団体名',
+  email: 'メールアドレス',
+  phone: '電話番号',
+  eventType: 'お問い合わせ種別',
+  eventDate: '開催日',
+  venue: '開催場所',
+  details: 'お問い合わせ・ご相談内容'
+};
+
+function buildConfirmList(data) {
+  confirmList.innerHTML = '';
+  for (const [key, label] of Object.entries(fieldLabels)) {
+    const value = (data.get(key) || '').toString().trim();
+    if (!value) continue;
+    const dt = document.createElement('dt');
+    dt.textContent = label;
+    const dd = document.createElement('dd');
+    dd.textContent = value;
+    confirmList.appendChild(dt);
+    confirmList.appendChild(dd);
+  }
+}
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  if (!form.checkValidity()) {
+    form.reportValidity();
+    return;
+  }
+
+  const data = new FormData(form);
+  buildConfirmList(data);
+
+  const actionUrl = form.getAttribute('action') || '';
+  const notConfigured = actionUrl.includes('REPLACE_WITH_YOUR_EMAIL');
+
+  if (notConfigured) {
+    // 受信用メールアドレスがまだ設定されていない状態。
+    // 実際には送信されないため、正直にその旨を伝える。
+    confirmTitle.textContent = '送信設定が未完了です';
+    confirmMessage.innerHTML =
+      'フォームの送信先メールアドレスがまだ設定されていません。<br>' +
+      'サイト管理者は index.html 内のフォームの action に書かれている「REPLACE_WITH_YOUR_EMAIL」を、実際に受け取りたいメールアドレスに書き換えてください。<br>' +
+      '（入力いただいた内容は送信されていません）';
+    form.hidden = true;
+    confirmBox.hidden = false;
+    confirmBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    return;
+  }
+
+  submitBtn.disabled = true;
+  submitBtn.textContent = '送信中…';
+
+  try {
+    const res = await fetch(actionUrl, {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (res.ok) {
+      confirmTitle.textContent = 'ご入力ありがとうございます';
+      confirmMessage.textContent = '以下の内容で送信しました。担当より折り返しご連絡いたします。';
+      form.reset();
+      form.hidden = true;
+      confirmBox.hidden = false;
+      confirmBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      throw new Error('送信に失敗しました');
+    }
+  } catch (err) {
+    confirmTitle.textContent = '送信できませんでした';
+    confirmMessage.innerHTML =
+      '通信エラーのため送信できませんでした。お手数ですが、時間をおして再度お試しいただくか、<br>' +
+      '下部のInstagramからご連絡ください。';
+    form.hidden = true;
+    confirmBox.hidden = false;
+    confirmBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'この内容で送信する';
+  }
+});
+
+confirmBack.addEventListener('click', () => {
+  confirmBox.hidden = true;
+  form.hidden = false;
+});
+
+// ---- 写真のライトボックス表示 ----
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+const lightboxClose = document.getElementById('lightboxClose');
+
+function openLightbox(img) {
+  lightboxImg.src = img.src;
+  lightboxImg.alt = img.alt;
+  lightbox.hidden = false;
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  lightbox.hidden = true;
+  document.body.style.overflow = '';
+}
+
+document.querySelectorAll('.zoomable').forEach(img => {
+  img.addEventListener('click', () => openLightbox(img));
+});
+
+lightboxClose.addEventListener('click', closeLightbox);
+
+lightbox.addEventListener('click', (e) => {
+  if (e.target === lightbox) closeLightbox();
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && !lightbox.hidden) closeLightbox();
+});
+
+// ---- ボタン・CTA・ナビの長押し対策 ----
+// 赤背景と文字は同一要素（spanなどに分割しない）。
+// CSS側のuser-select:none / -webkit-touch-calloutに加えて、
+// 長押しメニュー(contextmenu)だけ念のため防止する。
+// click（リンク遷移・ボタン動作）には一切影響しない。
+document.querySelectorAll('.btn, .main-nav a, .brand, .faq-item summary, .lightbox-close')
+  .forEach(el => {
+    el.addEventListener('contextmenu', (e) => e.preventDefault());
+  });
+
+// ---- CTAボタン（<button>）からのスクロール遷移 ----
+// これらは<a>ではなく<button>のため、data-scroll-toで
+// リンク先セクションまでスムーズスクロールする。
+// (html { scroll-behavior: smooth } が効くよう、location.hashで遷移)
+document.querySelectorAll('[data-scroll-to]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const targetSelector = btn.getAttribute('data-scroll-to');
+    const targetEl = document.querySelector(targetSelector);
+    if (targetEl) {
+      targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      history.pushState(null, '', targetSelector);
+    }
+  });
+});
+
+// ---- ボタンの押下状態を確実に解除する ----
+// iOS SafariはCSSの:active疑似クラス自体が正しく解除されず、
+// 指を離した後も暗い状態が残ることがある。これを避けるため、
+// CSS側では:activeを使わず、JSで管理する is-pressed クラスのみで
+// 押下時の見た目（色が濃くなる・縮む）を制御する。
+// touch/mouse両方のイベントを別々に登録するとiOS側の疑似マウス
+// イベント（ゴーストイベント）と二重発火することがあるため、
+// Pointer Events に一本化し、click発生時にも必ず解除する保険をかける。
+document.querySelectorAll('.btn').forEach(btn => {
+  const press = () => btn.classList.add('is-pressed');
+  const release = () => btn.classList.remove('is-pressed');
+
+  btn.addEventListener('pointerdown', press);
+  btn.addEventListener('pointerup', release);
+  btn.addEventListener('pointercancel', release);
+  btn.addEventListener('pointerleave', release);
+  btn.addEventListener('pointerout', release);
+
+  // クリックが成立した時点で必ず解除する最終的な保険
+  btn.addEventListener('click', release);
+
+  // Pointer Eventsに対応しない環境向けの保険（タッチのみ）
+  btn.addEventListener('touchend', release, { passive: true });
+  btn.addEventListener('touchcancel', release, { passive: true });
+});
+
+// ページのどこかにタッチ/クリックした際、念のため全ボタンの
+// 押下状態をリセットする最終防衛ライン
+function releaseAllPressedButtons() {
+  document.querySelectorAll('.btn.is-pressed').forEach(btn => {
+    btn.classList.remove('is-pressed');
+  });
+}
+document.addEventListener('touchend', releaseAllPressedButtons, { passive: true });
+document.addEventListener('pointerup', releaseAllPressedButtons);
+
+</script>
 </body>
 </html>
