@@ -156,8 +156,6 @@
           worksGrid.appendChild(card);
         });
       };
-      renderWorks("all");
-
       worksFilter.addEventListener("click", (e) => {
         const btn = e.target.closest("button[data-filter]");
         if (!btn) return;
