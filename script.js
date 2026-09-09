@@ -110,33 +110,51 @@
     if (worksGrid && worksFilter && Array.isArray(cfg.works)) {
       const renderWorks = (filter) => {
         worksGrid.innerHTML = "";
-        cfg.works
-          .filter((w) => filter === "all" || w.category === filter)
-          .forEach((w) => {
-            const card = document.createElement("article");
-            card.className = "work-card";
-            const isExternalLink = w.url && /^https?:\/\//.test(w.url);
-            const linkTarget = isExternalLink ? ' target="_blank" rel="noopener noreferrer"' : "";
-            const linkOpen = w.url ? `<a href="${w.url}"${linkTarget}>` : "";
-            const linkClose = w.url ? "</a>" : "";
-            const thumbInner = w.image
-              ? `<img src="${w.image}" alt="${w.title}のプレビュー" loading="lazy">`
-              : `${w.category}<br>（画像差し替え予定）`;
-            const noteHtml = w.note ? `<p class="work-note">${w.note}</p>` : "";
-            card.innerHTML = `
-              ${linkOpen}
-              <div class="work-thumb${w.image ? " has-image" : ""}">${thumbInner}</div>
-              <div class="work-body">
-                <span class="work-cat">${w.category}</span>
-                <h3>${w.title}</h3>
-                <p>${w.description}</p>
-                ${noteHtml}
+        const filtered = cfg.works.filter(
+          (w) => filter === "all" || (w.filterGroup || w.category) === filter
+        );
+        worksGrid.classList.toggle("is-single", filtered.length === 1);
+
+        if (filtered.length === 0) {
+          worksGrid.innerHTML = `<p class="works-empty">このカテゴリーの制作実績は、現在準備中です。</p>`;
+          return;
+        }
+
+        filtered.forEach((w) => {
+          const card = document.createElement("article");
+          card.className = "work-card";
+          const isExternalLink = w.url && /^https?:\/\//.test(w.url);
+          const linkTarget = isExternalLink ? ' target="_blank" rel="noopener noreferrer"' : "";
+          const linkOpen = w.url ? `<a href="${w.url}"${linkTarget}>` : "";
+          const linkClose = w.url ? "</a>" : "";
+          const thumbInner = w.image
+            ? `<img src="${w.image}" alt="${w.title}のプレビュー" loading="lazy">`
+            : `${w.category}<br>（画像準備中）`;
+          const noteHtml = w.note ? `<p class="work-note">${w.note}</p>` : "";
+          const rolesHtml = Array.isArray(w.roles) && w.roles.length
+            ? `<ul class="work-roles">${w.roles.map((r) => `<li>${r}</li>`).join("")}</ul>`
+            : "";
+          const ctaHtml = w.url
+            ? `<span class="work-cta">サイトを見る　→</span>`
+            : "";
+          card.innerHTML = `
+            ${linkOpen}
+            <div class="work-thumb${w.image ? " has-image" : ""}">${thumbInner}</div>
+            <div class="work-body">
+              <span class="work-cat">${w.category}</span>
+              <h3>${w.title}</h3>
+              <p>${w.description}</p>
+              ${rolesHtml}
+              ${noteHtml}
+              <div class="work-foot">
                 <span class="work-status">${w.status}</span>
+                ${ctaHtml}
               </div>
-              ${linkClose}
-            `;
-            worksGrid.appendChild(card);
-          });
+            </div>
+            ${linkClose}
+          `;
+          worksGrid.appendChild(card);
+        });
       };
       renderWorks("all");
 

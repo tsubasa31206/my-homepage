@@ -152,7 +152,7 @@ h3{ font-size:clamp(19px,2.2vw,23px); line-height:1.6; }
    HERO
    ============================================================ */
 .hero{
-  padding:168px var(--pad) 96px;
+  padding:148px var(--pad) 76px;
   max-width:var(--w-max); margin:0 auto;
   display:grid; gap:48px;
 }
@@ -194,15 +194,15 @@ h3{ font-size:clamp(19px,2.2vw,23px); line-height:1.6; }
 .hero-flow-mini .num{ font-family:var(--f-serif); color:var(--c-green); min-width:22px; }
 
 @media (min-width:960px){
-  .hero{ grid-template-columns:1.15fr .85fr; align-items:center; padding-top:196px; }
+  .hero{ grid-template-columns:1.15fr .85fr; align-items:center; padding-top:172px; }
 }
 
 /* ============================================================
    SECTION shell
    ============================================================ */
-section{ padding:96px var(--pad); }
+section{ padding:76px var(--pad); }
 .section-inner{ max-width:var(--w-max); margin:0 auto; }
-.section-head{ max-width:640px; margin-bottom:56px; }
+.section-head{ max-width:640px; margin-bottom:44px; }
 .section-head .eyebrow{ display:block; margin-bottom:14px; }
 .section-head h2{ margin-bottom:16px; }
 
@@ -282,6 +282,11 @@ section{ padding:96px var(--pad); }
 .works-grid{ display:grid; gap:28px; grid-template-columns:1fr; }
 @media (min-width:720px){ .works-grid{ grid-template-columns:repeat(2,1fr); } }
 
+.works-empty{
+  grid-column:1 / -1; text-align:center; padding:48px 20px; color:#6B6A5C;
+  border:1px dashed var(--c-line); border-radius:var(--radius); font-size:14.5px;
+}
+
 .work-card{
   border:1px solid var(--c-line); background:var(--c-white); border-radius:var(--radius);
   overflow:hidden; transition:box-shadow .2s ease, transform .2s ease;
@@ -299,9 +304,30 @@ section{ padding:96px var(--pad); }
 .work-cat{ font-size:12.5px; color:var(--c-green); letter-spacing:.04em; }
 .work-body h3{ margin:8px 0 10px; font-size:18px; }
 .work-body p{ font-size:14px; color:#4B4A3F; }
+
+.work-roles{ display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; }
+.work-roles li{
+  font-size:12px; color:var(--c-navy); background:var(--c-paper-deep);
+  border:1px solid var(--c-line); padding:4px 12px; border-radius:20px;
+}
+
+.work-foot{ display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:20px; }
 .work-status{
-  display:inline-block; margin-top:14px; font-size:12px; color:var(--c-navy);
+  display:inline-block; font-size:12px; color:var(--c-navy);
   border:1px solid var(--c-line); padding:4px 10px; border-radius:20px;
+}
+.work-cta{ font-size:13.5px; color:var(--c-green); font-weight:600; white-space:nowrap; }
+.work-card:hover .work-cta{ text-decoration:underline; }
+
+/* 制作実績が1件のみの場合：横長のショーケース表示にして空白感を防ぐ */
+.works-grid.is-single{ grid-template-columns:1fr; }
+.works-grid.is-single .work-card{ display:grid; grid-template-columns:1fr; }
+@media (min-width:760px){
+  .works-grid.is-single .work-card{ grid-template-columns:1.1fr 1fr; align-items:stretch; }
+  .works-grid.is-single .work-thumb{ aspect-ratio:auto; height:100%; min-height:320px; }
+  .works-grid.is-single .work-body{ padding:40px 44px; display:flex; flex-direction:column; justify-content:center; }
+  .works-grid.is-single .work-body h3{ font-size:24px; }
+  .works-grid.is-single .work-body p{ font-size:15px; }
 }
 
 /* ============================================================

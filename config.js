@@ -35,47 +35,21 @@ const SITE_CONFIG = {
 
   // ---- 料金 -----------------------------------------------------
   priceHomepageFrom: "50,000",
-  priceMaintenanceFrom: "5,000",
+  priceMaintenanceFrom: "3,000",
 
   // ---- 制作実績（あとから差し替え・追加してください） -----------
   // image: 画像パス / category: 表示カテゴリ / url: 公開URL（未公開ならnull）
   works: [
     {
-      title: "MC・司会者向けプロフィールサイト",
-      category: "個人事業主サイト",
+      title: "金沢美織（ちゃんみお） オフィシャルサイト",
+      category: "個人・サービスサイト",
+      filterGroup: "個人事業主サイト",
       description:
-        "企業イベントから結婚式まで幅広く活動するMC・司会者様のための、依頼につながるプロフィールサイトを制作しました。実績・人柄・料金の目安・よくある疑問を整理し、お問い合わせへの導線を設計しています。",
-      image: "works-mc-profile-thumb.png",
-      url: "work-mc-profile.html",
+        "企業・イベントMC、司会として活動する金沢美織（ちゃんみお）様の公式サイト。プロフィール、司会実績、料金、FAQ、お問い合わせなどを掲載し、仕事依頼につなげるためのWebサイトを制作しました。",
+      roles: ["企画・構成", "デザイン", "コーディング", "レスポンシブ対応"],
+      image: null,
+      url: "https://tsubasa31206.github.io/chanmio-homepage/",
       status: "制作実績",
-      note: "※掲載内容・画像は個人情報保護のため、サンプル用に変更しています。",
-    },
-    {
-      title: "制作実績募集中",
-      category: "企業サイト",
-      description:
-        "企業様のホームページ制作事例をこちらに掲載予定です。掲載許可をいただいたものから順次公開してまいります。",
-      image: null,
-      url: null,
-      status: "準備中",
-    },
-    {
-      title: "制作実績募集中",
-      category: "店舗サイト",
-      description:
-        "店舗様のホームページ制作事例をこちらに掲載予定です。",
-      image: null,
-      url: null,
-      status: "準備中",
-    },
-    {
-      title: "制作実績募集中",
-      category: "イベント・サービスサイト",
-      description:
-        "イベント・サービスサイトの制作事例をこちらに掲載予定です。",
-      image: null,
-      url: null,
-      status: "準備中",
     },
   ],
 };
