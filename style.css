@@ -471,10 +471,15 @@ section{ padding:96px var(--pad); }
 }
 
 /* ============================================================
-   SCROLL REVEAL (single subtle pass)
+   SCROLL REVEAL (progressive enhancement — visible by default,
+   only animates if JavaScript actually runs)
    ============================================================ */
-.reveal{ opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease; }
-.reveal.is-visible{ opacity:1; transform:none; }
+.reveal{ opacity:1; }
+html.has-js .reveal{
+  opacity:0; transform:translateY(16px);
+  transition:opacity .6s ease, transform .6s ease;
+}
+html.has-js .reveal.is-visible{ opacity:1; transform:none; }
 
 /* utility */
 .text-center{ text-align:center; margin-left:auto; margin-right:auto; }

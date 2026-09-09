@@ -45,8 +45,8 @@ const SITE_CONFIG = {
       category: "個人事業主サイト",
       description:
         "企業イベントから結婚式まで幅広く活動するMC・司会者様のための、依頼につながるプロフィールサイトを制作しました。実績・人柄・料金の目安・よくある疑問を整理し、お問い合わせへの導線を設計しています。",
-      image: "assets/works-mc-profile-thumb.png",
-      url: "works/mc-profile-sample/index.html",
+      image: "works-mc-profile-thumb.png",
+      url: "work-mc-profile.html",
       status: "制作実績",
       note: "※掲載内容・画像は個人情報保護のため、サンプル用に変更しています。",
     },
@@ -55,7 +55,7 @@ const SITE_CONFIG = {
       category: "企業サイト",
       description:
         "企業様のホームページ制作事例をこちらに掲載予定です。掲載許可をいただいたものから順次公開してまいります。",
-      image: "assets/works-placeholder.jpg",
+      image: null,
       url: null,
       status: "準備中",
     },
@@ -64,7 +64,7 @@ const SITE_CONFIG = {
       category: "店舗サイト",
       description:
         "店舗様のホームページ制作事例をこちらに掲載予定です。",
-      image: "assets/works-placeholder.jpg",
+      image: null,
       url: null,
       status: "準備中",
     },
@@ -73,7 +73,7 @@ const SITE_CONFIG = {
       category: "イベント・サービスサイト",
       description:
         "イベント・サービスサイトの制作事例をこちらに掲載予定です。",
-      image: "assets/works-placeholder.jpg",
+      image: null,
       url: null,
       status: "準備中",
     },
