@@ -86,9 +86,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   height:1px;
   background:var(--c-gold);
 }
-h1,h2,h3{ font-family:var(--f-serif); color:var(--c-navy); font-weight:600; overflow-wrap:break-word; }
-.service-item h3, .strength-card h3, .work-body h3, .price-card h3, .flow-item h3, .faq-q, .work-cat, .tag, .eyebrow{
-  overflow-wrap:break-word;
+h1,h2,h3{ font-family:var(--f-serif); color:var(--c-navy); font-weight:600; word-break:keep-all; overflow-wrap:break-word; }
+.service-item h3, .strength-card h3, .work-body h3, .price-card h3, .flow-item h3, .faq-q, .work-cat, .tag, .eyebrow, .nav-desktop a, .nav-mobile a, .btn, .work-result-cat, .work-result h3, .work-category-btn, .works-category-btn{
+  word-break:keep-all; overflow-wrap:break-word;
 }
 h2{ font-size:clamp(26px,3.4vw,38px); line-height:1.5; }
 h3{ font-size:clamp(19px,2.2vw,23px); line-height:1.6; }
