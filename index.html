@@ -87,7 +87,7 @@
   <section id="top" class="hero">
     <div class="hero-copy reveal">
       <span class="eyebrow">WEB CONSULTING &amp; PRODUCTION</span>
-      <h1>あなたの仕事が、<br>もっと伝わるWebサイトを。</h1>
+      <h1>あなたの仕事が、<br>もっと伝わる<wbr>Webサイトを。</h1>
       <p class="lead">個人事業主・店舗・中小企業のWebサイトを、<br>企画・設計・制作から公開後の保守・管理までサポートします。</p>
       <div class="hero-cta">
         <a href="#contact" class="btn btn-primary">ホームページ制作について相談する</a>
@@ -304,39 +304,26 @@
       <div class="section-head reveal">
         <span class="eyebrow">WORKS</span>
         <h2>制作事例</h2>
-        <p class="lead">実際に依頼すると、どんな仕上がりになるのか。これまで制作したサイトの中から、掲載の許可をいただいたものをご紹介します。</p>
+        <p class="lead">実際に依頼すると、どんな仕上がりになるのか。業種・ジャンルごとにご紹介します。</p>
       </div>
 
       <div class="works-filter reveal" id="worksFilter" role="tablist" aria-label="制作事例のカテゴリー絞り込み">
-        <button type="button" class="is-active" data-filter="all">すべて</button>
-        <button type="button" data-filter="企業サイト">企業サイト</button>
-        <button type="button" data-filter="店舗サイト">店舗サイト</button>
-        <button type="button" data-filter="個人事業主サイト">個人事業主サイト</button>
-        <button type="button" data-filter="イベント・サービスサイト">イベント・サービスサイト</button>
+        <!-- JSでカテゴリーボタンを生成 -->
       </div>
 
-      <div class="works-grid reveal is-single" id="worksGrid" data-static="true">
-        <article class="work-card" data-category="個人・サービスサイト" data-filter-group="個人事業主サイト">
+      <div class="works-grid reveal" id="worksGrid" data-static="true">
+        <article class="work-card" data-category="MC・司会">
           <a href="work-mc.html">
-            <div class="work-thumb has-image">
-              <img src="work-mc-pc.png" alt="MC・司会者向け公式サイトのプレビュー" loading="lazy">
-            </div>
-            <div class="work-body">
-              <span class="work-cat">個人・サービスサイト</span>
-              <h3>MC・司会者向け公式サイト</h3>
-              <ul class="work-tags">
-                <li>個人事業主</li>
-                <li>プロフィールサイト</li>
-                <li>お問い合わせ導線</li>
-                <li>レスポンシブ対応</li>
-              </ul>
-              <p>MC・司会者として活動する個人事業主の公式サイトを制作。プロフィール、実績、料金、お問い合わせなどを整理し、仕事の依頼につながる構成で制作しました。</p>
-              <p class="work-roles-text">担当：企画・構成 ／ デザイン ／ コーディング</p>
-              <div class="work-foot">
-                <span class="work-status">制作実績</span>
-                <span class="work-cta">実績を見る　→</span>
-              </div>
-            </div>
+            <span class="work-cat">MC・司会</span>
+            <h3>MC・司会者向け公式サイト</h3>
+            <ul class="work-features">
+              <li>プロフィール</li>
+              <li>実績</li>
+              <li>料金</li>
+              <li>お問い合わせ</li>
+            </ul>
+            <p>個人事業主として活動するMC・司会者の公式サイトを制作。プロフィール・実績・料金・お問い合わせを整理し、仕事の依頼につながる構成にしました。</p>
+            <span class="work-cta">実績を見る　→</span>
           </a>
         </article>
       </div>
