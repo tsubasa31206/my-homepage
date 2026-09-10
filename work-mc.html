@@ -297,7 +297,7 @@ p{ margin: 0 0 1em; max-width: var(--measure); }
   border: 1px solid var(--gold-soft);
   pointer-events: none;
 }
-.hero-photo{ width: 100%; height: auto; position: relative; }
+.hero-photo{ width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 20%; position: relative; }
 
 @media (min-width: 620px){
   .hero-photo-frame{ width: 320px; }
@@ -492,6 +492,10 @@ p{ margin: 0 0 1em; max-width: var(--measure); }
   align-items: start;
 }
 .profile-photo{
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center 20%;
   border: 1px solid var(--gold-soft);
   padding: 8px;
   background: var(--white);
@@ -1241,14 +1245,16 @@ document.querySelectorAll('.btn, .main-nav a, .brand, .faq-item summary, .lightb
 // ---- CTAボタン（<button>）からのスクロール遷移 ----
 // これらは<a>ではなく<button>のため、data-scroll-toで
 // リンク先セクションまでスムーズスクロールする。
-// (html { scroll-behavior: smooth } が効くよう、location.hashで遷移)
+// 注意：URLのhashは書き換えない。書き換えると、次回そのURLで
+// 開いたとき（再読み込み・ホーム画面への追加など）に、ブラウザが
+// 自動的にその位置までジャンプしてしまい、トップ（ヒーロー）が
+// 一切表示されない問題が起きるため。
 document.querySelectorAll('[data-scroll-to]').forEach(btn => {
   btn.addEventListener('click', () => {
     const targetSelector = btn.getAttribute('data-scroll-to');
     const targetEl = document.querySelector(targetSelector);
     if (targetEl) {
       targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      history.pushState(null, '', targetSelector);
     }
   });
 });
