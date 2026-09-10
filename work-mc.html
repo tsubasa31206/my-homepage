@@ -39,7 +39,7 @@
 }
 
 *{ box-sizing: border-box; }
-html{ scroll-behavior: smooth; }
+html{ scroll-behavior: smooth; overflow-x: hidden; max-width: 100%; }
 body{
   margin:0;
   background: var(--paper);
@@ -48,6 +48,9 @@ body{
   font-size: 16px;
   line-height: 1.9;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  max-width: 100%;
+  overflow-wrap: break-word;
 }
 
 img{ max-width:100%; display:block; }
@@ -270,7 +273,7 @@ p{ margin: 0 0 1em; max-width: var(--measure); }
 
 .hero-photo-frame{
   position: relative;
-  width: 260px;
+  width: min(260px, calc(100% - 32px));
   margin: 0 auto 36px;
   border: 1px solid var(--line);
   padding: 12px;
@@ -293,7 +296,7 @@ p{ margin: 0 0 1em; max-width: var(--measure); }
 .hero-photo-frame::after{
   content:'';
   position: absolute;
-  top: -9px; left: -9px; right: -9px; bottom: -9px;
+  top: -6px; left: -6px; right: -6px; bottom: -6px;
   border: 1px solid var(--gold-soft);
   pointer-events: none;
 }
