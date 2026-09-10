@@ -303,28 +303,27 @@
     <div class="section-inner">
       <div class="section-head reveal">
         <span class="eyebrow">WORKS</span>
-        <h2>制作事例</h2>
-        <p class="lead">実際に依頼すると、どんな仕上がりになるのか。業種・ジャンルごとにご紹介します。</p>
+        <h2>制作実績</h2>
+        <p class="lead">業種・用途から、制作事例をご覧いただけます。</p>
       </div>
 
-      <div class="works-filter reveal" id="worksFilter" role="tablist" aria-label="制作事例のカテゴリー絞り込み">
-        <!-- JSでカテゴリーボタンを生成 -->
+      <div class="works-category-select reveal">
+        <button type="button" id="worksCategoryToggle" class="works-category-btn" aria-expanded="false" aria-controls="worksCategoryList">
+          <span>カテゴリーを選択：<strong id="worksCategoryLabel">MC・司会</strong></span>
+          <span class="chevron" aria-hidden="true"></span>
+        </button>
+        <ul id="worksCategoryList" class="works-category-list" hidden>
+          <!-- JSでカテゴリー一覧を生成 -->
+        </ul>
       </div>
 
-      <div class="works-grid reveal" id="worksGrid" data-static="true">
-        <article class="work-card" data-category="MC・司会">
-          <a href="work-mc.html">
-            <span class="work-cat">MC・司会</span>
-            <h3>MC・司会者向け公式サイト</h3>
-            <ul class="work-features">
-              <li>プロフィール</li>
-              <li>実績</li>
-              <li>料金</li>
-              <li>お問い合わせ</li>
-            </ul>
-            <p>個人事業主として活動するMC・司会者の公式サイトを制作。プロフィール・実績・料金・お問い合わせを整理し、仕事の依頼につながる構成にしました。</p>
-            <span class="work-cta">実績を見る　→</span>
-          </a>
+      <div id="worksResults" class="works-results reveal" data-static="true">
+        <article class="work-result" data-category="MC・司会">
+          <span class="work-result-cat">MC・司会</span>
+          <h3>MC・司会者向けWebサイト</h3>
+          <p class="work-result-desc">個人事業主として活動するMC・司会者のWebサイトを制作。プロフィール・実績・料金・お問い合わせを整理し、仕事の依頼につながる構成にしました。</p>
+          <p class="work-result-scope">対応内容：企画・構成 ／ デザイン ／ コーディング</p>
+          <a href="work-mc.html" class="work-result-cta">詳細を見る　→</a>
         </article>
       </div>
     </div>
