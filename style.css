@@ -87,12 +87,13 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   background:var(--c-gold);
 }
 h1,h2,h3{ font-family:var(--f-serif); color:var(--c-navy); font-weight:600; word-break:keep-all; overflow-wrap:break-word; }
+p{ text-wrap:pretty; }
 .service-item h3, .strength-card h3, .work-body h3, .price-card h3, .flow-item h3, .faq-q, .work-cat, .tag, .eyebrow, .nav-desktop a, .nav-mobile a, .btn, .work-result-cat, .work-result h3, .work-category-btn, .works-category-btn{
   word-break:keep-all; overflow-wrap:break-word;
 }
-h2{ font-size:clamp(26px,3.4vw,38px); line-height:1.5; }
+h2{ font-size:clamp(26px,3.4vw,38px); line-height:1.5; text-wrap:pretty; }
 h3{ font-size:clamp(19px,2.2vw,23px); line-height:1.6; }
-.lead{ font-size:17px; color:#4B4A3F; max-width:52ch; }
+.lead{ font-size:17px; color:#4B4A3F; max-width:52ch; text-wrap:pretty; }
 
 /* ============================================================
    HEADER / NAV
@@ -169,8 +170,8 @@ h3{ font-size:clamp(19px,2.2vw,23px); line-height:1.6; }
 /* ============================================================
    HERO
    ============================================================ */
+.hero-section{ padding:148px var(--pad) 76px; }
 .hero{
-  padding:148px var(--pad) 76px;
   max-width:var(--w-max); margin:0 auto;
   display:grid; gap:48px;
 }
@@ -217,7 +218,8 @@ h3{ font-size:clamp(19px,2.2vw,23px); line-height:1.6; }
 .hero-flow-mini .num{ font-family:var(--f-serif); color:var(--c-gold); min-width:22px; }
 
 @media (min-width:960px){
-  .hero{ grid-template-columns:1.15fr .85fr; align-items:center; padding-top:172px; }
+  .hero-section{ padding-top:172px; }
+  .hero{ grid-template-columns:1.15fr .85fr; align-items:center; }
 }
 
 /* ============================================================
@@ -294,6 +296,23 @@ section{ padding:76px var(--pad); }
 .strength-card p{ font-size:14.5px; color:#4B4A3F; }
 @media (min-width:700px){ .strength-grid{ grid-template-columns:repeat(2,1fr); } }
 @media (min-width:1020px){ .strength-grid{ grid-template-columns:repeat(3,1fr); } }
+
+/* 3つの最重要ポイント：控えめなゴールドの背景・上罫線で視覚的に一段目立たせる */
+.strength-card--featured{
+  background:var(--c-gold-soft);
+  position:relative;
+  border-top:3px solid var(--c-gold);
+}
+.strength-card--featured .num{
+  font-size:30px;
+  color:var(--c-navy);
+  background:var(--c-white);
+  display:inline-flex; align-items:center; justify-content:center;
+  width:44px; height:44px; border-radius:50%;
+  border:1px solid var(--c-gold);
+  margin-bottom:16px;
+}
+.strength-card--featured h3{ font-size:19.5px; }
 
 /* ============================================================
    WORKS
