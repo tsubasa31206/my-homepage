@@ -288,30 +288,47 @@ section{ padding:76px var(--pad); }
    ============================================================ */
 .strength-grid{ display:grid; gap:2px; background:var(--c-line); }
 .strength-card{
-  background:var(--c-paper); padding:32px 28px;
+  padding:32px 28px;
+  border-top:3px solid transparent;
 }
-.strength-card .num{ font-family:var(--f-serif); font-size:26px; color:var(--c-gold); display:block; margin-bottom:14px; }
+.strength-card .num{ font-family:var(--f-serif); font-size:27px; display:block; margin-bottom:14px; }
 .strength-card h3{ margin-bottom:10px; }
 .strength-card p{ font-size:14.5px; color:#4B4A3F; }
 @media (min-width:700px){ .strength-grid{ grid-template-columns:repeat(2,1fr); } }
 @media (min-width:1020px){ .strength-grid{ grid-template-columns:repeat(3,1fr); } }
 
-/* 3つの最重要ポイント：控えめなゴールドの背景・上罫線で視覚的に一段目立たせる */
-.strength-card--featured{
-  background:var(--c-gold-soft);
-  position:relative;
-  border-top:3px solid var(--c-gold);
-}
-.strength-card--featured .num{
-  font-size:30px;
-  color:var(--c-navy);
-  background:var(--c-white);
-  display:inline-flex; align-items:center; justify-content:center;
-  width:44px; height:44px; border-radius:50%;
-  border:1px solid var(--c-gold);
-  margin-bottom:16px;
-}
-.strength-card--featured h3{ font-size:19.5px; }
+/* 9個それぞれに、同じブランドの中で見分けがつく色調を割り当てる
+   （原色は使わず、ゴールド・ブロンズ・アイボリー・ウォームグレーの範囲で構成） */
+.strength-card--1{ background:#F6E8C8; border-top-color:#C79A4A; }
+.strength-card--1 .num{ color:#B8903E; }
+
+.strength-card--2{ background:#EFD9A2; border-top-color:#B5843A; }
+.strength-card--2 .num{ color:#A2732E; }
+
+.strength-card--3{ background:#E9DABB; border-top-color:#AD9163; }
+.strength-card--3 .num{ color:#9C7C46; }
+
+.strength-card--4{ background:#EFEAE0; border-top-color:#B4AA95; }
+.strength-card--4 .num{ color:#8B8677; }
+
+.strength-card--5{ background:#E6E1D6; border-top-color:#A8A08C; }
+.strength-card--5 .num{ color:#767159; }
+
+.strength-card--6{ background:#F2E7CE; border-top-color:#C9A96E; }
+.strength-card--6 .num{ color:#B0904F; }
+
+.strength-card--7{ background:#EEDDB2; border-top-color:#BC9450; }
+.strength-card--7 .num{ color:#AD8945; }
+
+.strength-card--8{ background:#E9E3D8; border-top-color:#AEA48F; }
+.strength-card--8 .num{ color:#86816F; }
+
+.strength-card--9{ background:#E7D6B7; border-top-color:#B18F55; }
+.strength-card--9 .num{ color:#9C7C46; }
+
+/* 01〜03は特に差別化ポイントのため、見出しだけごく僅かに強調する
+   （カードの大きさ・形は他と統一したまま） */
+.strength-card--1 h3, .strength-card--2 h3, .strength-card--3 h3{ font-weight:700; }
 
 /* ============================================================
    WORKS
