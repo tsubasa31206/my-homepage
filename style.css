@@ -52,8 +52,6 @@ h1,h2,h3,h4,p{ margin:0; }
 .container{
   max-width:var(--w-max);
   margin:0 auto;
-  padding-left:var(--pad);
-  padding-right:var(--pad);
 }
 
 /* focus visibility */
@@ -104,6 +102,7 @@ h3{ font-size:clamp(19px,2.2vw,23px); line-height:1.6; }
   backdrop-filter:saturate(140%) blur(6px);
   border-bottom:1px solid transparent;
   transition:border-color .3s ease, background .3s ease;
+  padding-left:var(--pad); padding-right:var(--pad);
 }
 .site-header.is-scrolled{ border-bottom-color:var(--c-line); }
 
